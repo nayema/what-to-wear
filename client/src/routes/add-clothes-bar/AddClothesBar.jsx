@@ -27,7 +27,7 @@ const styles = theme => ({
   }
 })
 
-const AddClothesBar = ({ classes, newMinTemp, newMaxTemp, newSetOfClothes, changeNewMinTemp, changeNewMaxTemp, changeNewSetOfClothes, addClothesList }) => (
+const AddClothesBar = ({ classes, newMinTemp, newMaxTemp, newSetOfClothes, changeNewMinTemp, changeNewMaxTemp, changeNewSetOfClothes, addNewSetOfClothes }) => (
   <div className={classes.root}>
     <FormControl
       className={classNames(classes.formControl, classes.withoutLabel)}
@@ -69,7 +69,7 @@ const AddClothesBar = ({ classes, newMinTemp, newMaxTemp, newSetOfClothes, chang
       color="primary"
       aria-label="add"
       className={classes.button}
-      onClick={() => addClothesList(newSetOfClothes)}
+      onClick={() => addNewSetOfClothes(newSetOfClothes)}
     >
       <AddIcon/>
     </Button>

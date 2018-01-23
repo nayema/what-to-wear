@@ -29,3 +29,12 @@ export const addNewSetOfClothes = (setOfClothes) => ({
     }
   }
 })
+
+export const deleteClothesTemperatureMapping = (setOfClothes) => ({
+  type: actionTypes.DELETE_CLOTHES_TEMPERATURE_MAPPING,
+  payload: {
+    clothes: {
+      setOfClothes
+    }
+  }
+})

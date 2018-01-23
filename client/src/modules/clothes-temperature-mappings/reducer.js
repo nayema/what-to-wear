@@ -7,7 +7,7 @@ const initialState = {
   newMaxTemp: 10
 }
 
-function reducer(state = initialState, action) {
+function reducer (state = initialState, action) {
   switch (action.type) {
     case actionTypes.CHANGE_NEW_MIN_TEMP: {
       return {
@@ -37,6 +37,14 @@ function reducer(state = initialState, action) {
         newSetOfClothes: '',
         newMinTemp: 0,
         newMaxTemp: 10
+      }
+    }
+    case actionTypes.DELETE_CLOTHES_TEMPERATURE_MAPPING: {
+      const oldMappings = state.clothesTemperatureMappings
+      return {
+        ...state,
+        clothesTemperatureMappings: oldMappings.filter((mapping) =>
+          mapping.setOfClothes !== action.payload.clothes.setOfClothes)
       }
     }
     default:
