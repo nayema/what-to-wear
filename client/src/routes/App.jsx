@@ -4,7 +4,7 @@ import Grid from 'material-ui/Grid'
 import { withStyles } from 'material-ui/styles'
 
 import Header from './Header'
-import AddClothesBar from './add-clothes-bar/AddClothesBar'
+import AddClothesBar from './add-clothes-bar/AddClothesBarContainer'
 
 const styles = theme => ({
   root: {

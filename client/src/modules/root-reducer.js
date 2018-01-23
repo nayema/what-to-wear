@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
 
-// import * as tasks from './task-list'
+import * as clothesTemperatureMappings from './clothes-temperature-mappings'
 
 export default combineReducers({
-  routing: routerReducer
+  routing: routerReducer,
+  clothesTemperatureMappings: clothesTemperatureMappings.reducer
 })

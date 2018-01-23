@@ -1,18 +1,78 @@
 import React from 'react'
+import classNames from 'classnames'
+import Input, { InputAdornment } from 'material-ui/Input'
+import { FormControl, FormHelperText } from 'material-ui/Form'
+import TextField from 'material-ui/TextField'
+import Button from 'material-ui/Button'
+import AddIcon from 'material-ui-icons/Add'
 import { withStyles } from 'material-ui/styles'
 
 const styles = theme => ({
   root: {
-    flexGrow: 1,
-    marginTop: theme.spacing.unit * 3,
-    overflowX: 'auto',
-    width: '100%'
+    flexWrap: 'wrap'
+  },
+  formControl: {
+    margin: theme.spacing.unit
+  },
+  withoutLabel: {
+    marginTop: theme.spacing.unit
+  },
+  textField: {
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
+    width: 200
+  },
+  button: {
+    margin: theme.spacing.unit
   }
 })
 
-const AddClothesBar = ({ classes }) => (
-  <div>
-
+const AddClothesBar = ({ classes, newMinTemp, newMaxTemp, newSetOfClothes, changeNewMinTemp, changeNewMaxTemp, changeNewSetOfClothes, addClothesList }) => (
+  <div className={classes.root}>
+    <FormControl
+      className={classNames(classes.formControl, classes.withoutLabel)}
+      aria-describedby="weight-helper-text"
+    >
+      <Input
+        value={newMinTemp}
+        type="number"
+        onChange={(e) => changeNewMinTemp(e.target.value)}
+        endAdornment={<InputAdornment position="end">°C</InputAdornment>}
+      />
+      <FormHelperText id="weight-helper-text">Min Temperature</FormHelperText>
+    </FormControl>
+    <FormControl
+      className={classNames(classes.formControl, classes.withoutLabel)}
+      aria-describedby="weight-helper-text"
+    >
+      <Input
+        value={newMaxTemp}
+        type="number"
+        onChange={(e) => changeNewMaxTemp(e.target.value)}
+        endAdornment={<InputAdornment position="end">°C</InputAdornment>}
+      />
+      <FormHelperText id="weight-helper-text">Max Temperature</FormHelperText>
+    </FormControl>
+    <TextField
+      multiline
+      label="Enter clothes to wear"
+      rowsMax="3"
+      value={newSetOfClothes}
+      onChange={(e) => changeNewSetOfClothes(e.target.value)}
+      className={classes.textField}
+      margin="normal"
+      fullWidth
+    />
+    <Button
+      fab
+      mini
+      color="primary"
+      aria-label="add"
+      className={classes.button}
+      onClick={() => addClothesList(newSetOfClothes)}
+    >
+      <AddIcon/>
+    </Button>
   </div>
 )
 
