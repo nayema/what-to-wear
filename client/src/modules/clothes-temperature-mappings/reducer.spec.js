@@ -10,7 +10,7 @@ describe('reducer', () => {
     expect(nextState).toHaveProperty('clothesTemperatureMappings', [])
     expect(nextState).toHaveProperty('newSetOfClothes', '')
     expect(nextState).toHaveProperty('newMinTemp', 0)
-    expect(nextState).toHaveProperty('newMaxTemp', 100)
+    expect(nextState).toHaveProperty('newMaxTemp', 10)
   })
 
   it('changes new minimum temperature', () => {
