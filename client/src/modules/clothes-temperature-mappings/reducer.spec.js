@@ -37,9 +37,23 @@ describe('reducer', () => {
     expect(nextState).toHaveProperty('newSetOfClothes', 'Canada Goose, gloves')
   })
 
+  it('returns previous state if not provided with a set of clothes', () => {
+    const previousState = { clothesTemperatureMappings: [], newSetOfClothes: '', newMinTemp: 0, newMaxTemp: 10 }
+    const newSetOfClothes = ''
+    const addNewSetOfClothesAction = actionCreators.addNewSetOfClothes(newSetOfClothes)
+
+    const nextState = reducer(previousState, addNewSetOfClothesAction)
+
+    expect(nextState).toHaveProperty('clothesTemperatureMappings', [])
+    expect(nextState).toHaveProperty('newSetOfClothes', '')
+    expect(nextState).toHaveProperty('newMinTemp', 0)
+    expect(nextState).toHaveProperty('newMaxTemp', 10)
+  })
+
   it('adds new set of clothes to clothes temperature mappings list', () => {
-    const previousState = { clothesTemperatureMappings: [], newSetOfClothes: 'Canada Goose, gloves', newMinTemp: 0, newMaxTemp: 10 }
-    const addNewSetOfClothesAction = actionCreators.addNewSetOfClothes(previousState.newSetOfClothes)
+    const previousState = { clothesTemperatureMappings: [], newSetOfClothes: '', newMinTemp: 0, newMaxTemp: 10 }
+    const newSetOfClothes = 'Canada Goose, gloves'
+    const addNewSetOfClothesAction = actionCreators.addNewSetOfClothes(newSetOfClothes)
 
     const nextState = reducer(previousState, addNewSetOfClothesAction)
 

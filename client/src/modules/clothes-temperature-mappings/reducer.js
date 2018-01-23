@@ -28,6 +28,9 @@ function reducer(state = initialState, action) {
       }
     }
     case actionTypes.ADD_NEW_SET_OF_CLOTHES: {
+      if (action.payload.clothes.setOfClothes === '') {
+        return state
+      }
       return {
         ...state,
         clothesTemperatureMappings: state.clothesTemperatureMappings.concat(action.payload.clothes),
