@@ -17,7 +17,7 @@ function mapDispatchToProps (dispatch) {
     changeNewMinTemp: clothesList.actionCreators.changeNewMinTemp,
     changeNewMaxTemp: clothesList.actionCreators.changeNewMaxTemp,
     changeNewSetOfClothes: clothesList.actionCreators.changeNewSetOfClothes,
-    addClothesList: clothesList.actionCreators.addClotheList
+    addNewSetOfClothes: clothesList.actionCreators.addClotheList
   }, dispatch)
 }
 

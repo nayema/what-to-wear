@@ -36,4 +36,16 @@ describe('reducer', () => {
 
     expect(nextState).toHaveProperty('newSetOfClothes', 'Canada Goose, gloves')
   })
+
+  it('adds new set of clothes to clothes temperature mappings list', () => {
+    const previousState = { clothesTemperatureMappings: [], newSetOfClothes: 'Canada Goose, gloves', newMinTemp: 0, newMaxTemp: 10 }
+    const addNewSetOfClothesAction = actionCreators.addNewSetOfClothes(previousState.newSetOfClothes)
+
+    const nextState = reducer(previousState, addNewSetOfClothesAction)
+
+    expect(nextState).toHaveProperty('clothesTemperatureMappings', [{ setOfClothes: 'Canada Goose, gloves' }])
+    expect(nextState).toHaveProperty('newSetOfClothes', '')
+    expect(nextState).toHaveProperty('newMinTemp', 0)
+    expect(nextState).toHaveProperty('newMaxTemp', 10)
+  })
 })

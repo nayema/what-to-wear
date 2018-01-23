@@ -27,6 +27,15 @@ function reducer(state = initialState, action) {
         newSetOfClothes: action.payload.clothes
       }
     }
+    case actionTypes.ADD_NEW_SET_OF_CLOTHES: {
+      return {
+        ...state,
+        clothesTemperatureMappings: state.clothesTemperatureMappings.concat(action.payload.clothes),
+        newSetOfClothes: '',
+        newMinTemp: 0,
+        newMaxTemp: 10
+      }
+    }
     default:
       return state
   }

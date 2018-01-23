@@ -20,3 +20,12 @@ export const changeNewSetOfClothes = (clothes) => ({
     clothes
   }
 })
+
+export const addNewSetOfClothes = (setOfClothes) => ({
+  type: actionTypes.ADD_NEW_SET_OF_CLOTHES,
+  payload: {
+    clothes: {
+      setOfClothes
+    }
+  }
+})
