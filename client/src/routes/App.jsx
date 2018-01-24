@@ -5,6 +5,7 @@ import { withStyles } from 'material-ui/styles'
 
 import Header from './Header'
 import AddClothesBar from './add-clothes-bar/AddClothesBarContainer'
+import ClothesTemperatureMappings from './clothes-temperature-mappings/ClothesTemperatureMappingsContainer'
 
 const styles = theme => ({
   root: {
@@ -31,6 +32,7 @@ const App = ({ classes }) => (
       <Grid item xs className={ classes.content }>
         <Paper className={ classes.paper }>
           <AddClothesBar/>
+          <ClothesTemperatureMappings/>
         </Paper>
       </Grid>
     </Grid>

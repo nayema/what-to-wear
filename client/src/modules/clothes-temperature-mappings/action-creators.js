@@ -21,10 +21,12 @@ export const changeNewSetOfClothes = (clothes) => ({
   }
 })
 
-export const addNewSetOfClothes = (setOfClothes) => ({
-  type: actionTypes.ADD_NEW_SET_OF_CLOTHES,
+export const addClothesTemperatureMapping = (minTemp, maxTemp, setOfClothes) => ({
+  type: actionTypes.ADD_CLOTHES_TEMPERATURE_MAPPING,
   payload: {
-    clothes: {
+    mapping: {
+      minTemp,
+      maxTemp,
       setOfClothes
     }
   }

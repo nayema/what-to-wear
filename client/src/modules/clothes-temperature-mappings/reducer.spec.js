@@ -38,29 +38,44 @@ describe('reducer', () => {
   })
 
   it('returns previous state if not provided with a set of clothes', () => {
-    const previousState = { clothesTemperatureMappings: [], newSetOfClothes: '', newMinTemp: 0, newMaxTemp: 10 }
+    const previousState = { clothesTemperatureMappings: [], newMinTemp: 0, newMaxTemp: 10, newSetOfClothes: '' }
     const newSetOfClothes = ''
-    const addNewSetOfClothesAction = actionCreators.addNewSetOfClothes(newSetOfClothes)
+    const addClothesTemperatureMappingAction = actionCreators.addClothesTemperatureMapping(
+      previousState.newMinTemp,
+      previousState.newMaxTemp,
+      newSetOfClothes
+    )
 
-    const nextState = reducer(previousState, addNewSetOfClothesAction)
+    const nextState = reducer(previousState, addClothesTemperatureMappingAction)
 
     expect(nextState).toHaveProperty('clothesTemperatureMappings', [])
-    expect(nextState).toHaveProperty('newSetOfClothes', '')
     expect(nextState).toHaveProperty('newMinTemp', 0)
     expect(nextState).toHaveProperty('newMaxTemp', 10)
+    expect(nextState).toHaveProperty('newSetOfClothes', '')
   })
 
-  it('adds new set of clothes to clothes temperature mappings list', () => {
-    const previousState = { clothesTemperatureMappings: [], newSetOfClothes: '', newMinTemp: 0, newMaxTemp: 10 }
-    const newSetOfClothes = 'Some set of clothes'
-    const addNewSetOfClothesAction = actionCreators.addNewSetOfClothes(newSetOfClothes)
+  it('adds new clothes temperature mapping to the state', () => {
+    const previousState = {
+      clothesTemperatureMappings: [],
+      newMinTemp: 0,
+      newMaxTemp: 10,
+      newSetOfClothes: 'Some set of clothes'
+    }
+    const addClothesTemperatureMappingAction = actionCreators.addClothesTemperatureMapping(
+      previousState.newMinTemp,
+      previousState.newMaxTemp,
+      previousState.newSetOfClothes
+    )
 
-    const nextState = reducer(previousState, addNewSetOfClothesAction)
+    const nextState = reducer(previousState, addClothesTemperatureMappingAction)
 
-    expect(nextState).toHaveProperty('clothesTemperatureMappings', [{ setOfClothes: 'Some set of clothes' }])
-    expect(nextState).toHaveProperty('newSetOfClothes', '')
+    expect(nextState).toHaveProperty(
+      'clothesTemperatureMappings',
+      [{ minTemp: 0, maxTemp: 10, setOfClothes: 'Some set of clothes' }]
+    )
     expect(nextState).toHaveProperty('newMinTemp', 0)
     expect(nextState).toHaveProperty('newMaxTemp', 10)
+    expect(nextState).toHaveProperty('newSetOfClothes', '')
   })
 
   it('deletes a clothes temperature mapping row from clothes temperature mappings list', () => {

@@ -2,9 +2,9 @@ import * as actionTypes from './action-types'
 
 const initialState = {
   clothesTemperatureMappings: [],
-  newSetOfClothes: '',
   newMinTemp: 0,
-  newMaxTemp: 10
+  newMaxTemp: 10,
+  newSetOfClothes: ''
 }
 
 function reducer (state = initialState, action) {
@@ -27,13 +27,13 @@ function reducer (state = initialState, action) {
         newSetOfClothes: action.payload.clothes
       }
     }
-    case actionTypes.ADD_NEW_SET_OF_CLOTHES: {
-      if (action.payload.clothes.setOfClothes === '') {
+    case actionTypes.ADD_CLOTHES_TEMPERATURE_MAPPING: {
+      if (action.payload.mapping.setOfClothes === '') {
         return state
       }
       return {
         ...state,
-        clothesTemperatureMappings: state.clothesTemperatureMappings.concat(action.payload.clothes),
+        clothesTemperatureMappings: state.clothesTemperatureMappings.concat(action.payload.mapping),
         newSetOfClothes: '',
         newMinTemp: 0,
         newMaxTemp: 10

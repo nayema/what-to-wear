@@ -27,11 +27,10 @@ const styles = theme => ({
   }
 })
 
-const AddClothesBar = ({ classes, newMinTemp, newMaxTemp, newSetOfClothes, changeNewMinTemp, changeNewMaxTemp, changeNewSetOfClothes, addNewSetOfClothes }) => (
+const AddClothesBar = ({ classes, newMinTemp, newMaxTemp, newSetOfClothes, changeNewMinTemp, changeNewMaxTemp, changeNewSetOfClothes, addClothesTemperatureMapping }) => (
   <div className={classes.root}>
     <FormControl
       className={classNames(classes.formControl, classes.withoutLabel)}
-      aria-describedby="weight-helper-text"
     >
       <Input
         value={newMinTemp}
@@ -39,11 +38,10 @@ const AddClothesBar = ({ classes, newMinTemp, newMaxTemp, newSetOfClothes, chang
         onChange={(e) => changeNewMinTemp(e.target.value)}
         endAdornment={<InputAdornment position="end">°C</InputAdornment>}
       />
-      <FormHelperText id="weight-helper-text">Min Temperature</FormHelperText>
+      <FormHelperText>Min Temperature</FormHelperText>
     </FormControl>
     <FormControl
       className={classNames(classes.formControl, classes.withoutLabel)}
-      aria-describedby="weight-helper-text"
     >
       <Input
         value={newMaxTemp}
@@ -51,12 +49,12 @@ const AddClothesBar = ({ classes, newMinTemp, newMaxTemp, newSetOfClothes, chang
         onChange={(e) => changeNewMaxTemp(e.target.value)}
         endAdornment={<InputAdornment position="end">°C</InputAdornment>}
       />
-      <FormHelperText id="weight-helper-text">Max Temperature</FormHelperText>
+      <FormHelperText>Max Temperature</FormHelperText>
     </FormControl>
     <TextField
       multiline
       label="Enter clothes to wear"
-      rowsMax="3"
+      rowsMax="2"
       value={newSetOfClothes}
       onChange={(e) => changeNewSetOfClothes(e.target.value)}
       className={classes.textField}
@@ -69,7 +67,7 @@ const AddClothesBar = ({ classes, newMinTemp, newMaxTemp, newSetOfClothes, chang
       color="primary"
       aria-label="add"
       className={classes.button}
-      onClick={() => addNewSetOfClothes(newSetOfClothes)}
+      onClick={() => addClothesTemperatureMapping(newMinTemp, newMaxTemp, newSetOfClothes)}
     >
       <AddIcon/>
     </Button>
