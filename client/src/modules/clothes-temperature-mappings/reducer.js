@@ -9,6 +9,12 @@ const initialState = {
 
 function reducer (state = initialState, action) {
   switch (action.type) {
+    case actionTypes.LOAD_ALL_SUCCEEDED: {
+      return {
+        ...state,
+        clothesTemperatureMappings: action.payload.clothesTemperatureMappings
+      }
+    }
     case actionTypes.CHANGE_NEW_MIN_TEMP: {
       return {
         ...state,

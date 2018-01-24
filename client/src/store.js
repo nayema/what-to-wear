@@ -4,7 +4,7 @@ import createSagaMiddleware from 'redux-saga'
 import createHistory from 'history/createBrowserHistory'
 
 import rootReducer from './modules/root-reducer'
-// import * as accounts from './modules/accounts'
+import * as clothesTemperatureMappings from './modules/clothes-temperature-mappings'
 
 const sagaMiddleware = createSagaMiddleware()
 export const history = createHistory()
@@ -35,7 +35,6 @@ const store = createStore(
   composedEnhancers
 )
 
-// sagaMiddleware.run(accounts.sagas.loadAccounts)
-// sagaMiddleware.run(accounts.sagas.addAccount)
+sagaMiddleware.run(clothesTemperatureMappings.sagas.loadAll)
 
 export default store

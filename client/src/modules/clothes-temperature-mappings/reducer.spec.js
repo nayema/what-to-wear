@@ -13,6 +13,19 @@ describe('reducer', () => {
     expect(nextState).toHaveProperty('newMaxTemp', 10)
   })
 
+  it('loads into clothes temperature mappings list', () => {
+    const loadAllSucceededAction = actionCreators.loadAllSucceeded(
+      [{ id: 1, minTemp: 0, maxTemp: 10, setOfClothes: 'Some set of clothes' }]
+    )
+
+    const nextState = reducer(undefined, loadAllSucceededAction)
+
+    expect(nextState).toHaveProperty(
+      'clothesTemperatureMappings',
+      [{ id: 1, minTemp: 0, maxTemp: 10, setOfClothes: 'Some set of clothes' }]
+    )
+  })
+
   it('changes new minimum temperature', () => {
     const changeNewMinTempAction = actionCreators.changeNewMinTemp(0)
 

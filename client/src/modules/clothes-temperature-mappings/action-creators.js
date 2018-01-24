@@ -1,5 +1,12 @@
 import * as actionTypes from './action-types'
 
+export const loadAllSucceeded = (clothesTemperatureMappings) => ({
+  type: actionTypes.LOAD_ALL_SUCCEEDED,
+  payload: {
+    clothesTemperatureMappings
+  }
+})
+
 export const changeNewMinTemp = (temperature) => ({
   type: actionTypes.CHANGE_NEW_MIN_TEMP,
   payload: {
