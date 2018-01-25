@@ -30,16 +30,14 @@ function reducer (state = initialState, action) {
     case actionTypes.CHANGE_NEW_SET_OF_CLOTHES: {
       return {
         ...state,
-        newSetOfClothes: action.payload.clothes
+        newSetOfClothes: action.payload.newSetOfClothes
       }
     }
-    case actionTypes.ADD_CLOTHES_TEMPERATURE_MAPPING: {
-      if (action.payload.mapping.setOfClothes === '') {
-        return state
-      }
+    case actionTypes.ADD_MAPPING_SUCCEEDED: {
+      const oldMappings = state.clothesTemperatureMappings
       return {
         ...state,
-        clothesTemperatureMappings: state.clothesTemperatureMappings.concat(action.payload.mapping),
+        clothesTemperatureMappings: oldMappings.concat(action.payload.clothesTemperatureMapping),
         newSetOfClothes: '',
         newMinTemp: 0,
         newMaxTemp: 10
@@ -50,7 +48,7 @@ function reducer (state = initialState, action) {
       return {
         ...state,
         clothesTemperatureMappings: oldMappings.filter((mapping) =>
-          mapping.setOfClothes !== action.payload.clothes.setOfClothes)
+          mapping.setOfClothes !== action.payload.clothesTemperatureMapping.setOfClothes)
       }
     }
     default:

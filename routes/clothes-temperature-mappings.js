@@ -10,7 +10,7 @@ router.get('/all', async (req, res) => {
 
 router.post('/add', async (req, res) => {
   const { rows } = await db.query(
-    'INSERT INTO clothes_temperature_mappings(min_temp, max_temp, set_of_clothes) VALUES ($1, $2, $3)',
+    'INSERT INTO clothes_temperature_mappings(min_temp, max_temp, set_of_clothes) VALUES ($1, $2, $3) RETURNING *',
     [req.body.minTemp, req.body.maxTemp, req.body.setOfClothes]
   )
   res.send(rows)

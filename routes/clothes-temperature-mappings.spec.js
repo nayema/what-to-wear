@@ -30,8 +30,7 @@ describe('clothes temperature mappings route', () => {
       .send(clothesTemperatureMapping)
 
     expect(response.statusCode).toBe(200)
-    const { rows } = await db.query('SELECT * FROM clothes_temperature_mappings')
-    const clothesTemperatureMappings = rows
+    const clothesTemperatureMappings = response.body
     expect(clothesTemperatureMappings[0]).toHaveProperty('min_temp', 0)
     expect(clothesTemperatureMappings[0]).toHaveProperty('max_temp', 10)
     expect(clothesTemperatureMappings[0]).toHaveProperty('set_of_clothes', 'Some set of clothes')

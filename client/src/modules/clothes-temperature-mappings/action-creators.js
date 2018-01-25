@@ -21,17 +21,17 @@ export const changeNewMaxTemp = (temperature) => ({
   }
 })
 
-export const changeNewSetOfClothes = (clothes) => ({
+export const changeNewSetOfClothes = (newSetOfClothes) => ({
   type: actionTypes.CHANGE_NEW_SET_OF_CLOTHES,
   payload: {
-    clothes
+    newSetOfClothes
   }
 })
 
-export const addClothesTemperatureMapping = (minTemp, maxTemp, setOfClothes) => ({
-  type: actionTypes.ADD_CLOTHES_TEMPERATURE_MAPPING,
+export const addMappingRequested = (minTemp, maxTemp, setOfClothes) => ({
+  type: actionTypes.ADD_MAPPING_REQUESTED,
   payload: {
-    mapping: {
+    clothesTemperatureMapping: {
       minTemp,
       maxTemp,
       setOfClothes
@@ -39,10 +39,17 @@ export const addClothesTemperatureMapping = (minTemp, maxTemp, setOfClothes) => 
   }
 })
 
+export const addMappingSucceeded = (clothesTemperatureMapping) => ({
+  type: actionTypes.ADD_MAPPING_SUCCEEDED,
+  payload: {
+    clothesTemperatureMapping
+  }
+})
+
 export const deleteClothesTemperatureMapping = (setOfClothes) => ({
   type: actionTypes.DELETE_CLOTHES_TEMPERATURE_MAPPING,
   payload: {
-    clothes: {
+    clothesTemperatureMapping: {
       setOfClothes
     }
   }

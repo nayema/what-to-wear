@@ -36,5 +36,6 @@ const store = createStore(
 )
 
 sagaMiddleware.run(clothesTemperatureMappings.sagas.loadAll)
+sagaMiddleware.run(clothesTemperatureMappings.sagas.addClothesTemperatureMapping)
 
 export default store
