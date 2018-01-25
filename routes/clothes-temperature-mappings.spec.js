@@ -12,7 +12,8 @@ describe('clothes temperature mappings route', () => {
     await db.query(
       'INSERT INTO clothes_temperature_mappings (min_temp, max_temp, set_of_clothes) VALUES (0, 10, \'Some set of clothes\')')
 
-    const response = await request(app).get('/all')
+    const response = await request(app)
+      .get('/all')
 
     expect(response.statusCode).toBe(200)
     const clothesTemperatureMappings = response.body
