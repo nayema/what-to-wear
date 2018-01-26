@@ -11,7 +11,9 @@ describe('reducer', () => {
   })
 
   it('loads real feel temperature', () => {
-    const loadCurrentConditionsSucceededAction = actionCreators.loadCurrentConditionsSucceeded(7)
+    const loadCurrentConditionsSucceededAction = actionCreators.loadCurrentConditionsSucceeded({
+      realFeelTemperature: 7
+    })
 
     const nextState = reducer(undefined, loadCurrentConditionsSucceededAction)
 

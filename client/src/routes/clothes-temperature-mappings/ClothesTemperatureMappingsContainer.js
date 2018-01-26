@@ -1,7 +1,6 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-// import * as clothesTemperatureMappings from '../../modules/clothesTemperatureMapping-temperature-mappings'
 import ClothesTemperatureMappings from './ClothesTemperatureMappings'
 
 function mapStateToProps (state) {
