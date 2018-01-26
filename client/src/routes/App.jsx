@@ -16,8 +16,13 @@ const styles = theme => ({
   container: {
     justifyContent: 'center'
   },
-  content: {
-    maxWidth: '960px'
+  forecastContent: {
+    minWidth: '100px',
+    maxWidth: '300px'
+  },
+  configurationContent: {
+    minWidth: '800px',
+    maxWidth: '700px'
   },
   paper: {
     padding: 16,
@@ -27,14 +32,18 @@ const styles = theme => ({
 })
 
 const App = ({ classes }) => (
-  <div className={ classes.root }>
+  <div className={classes.root}>
     <Header/>
-    <Grid container className={ classes.container } spacing={ 24 }>
-      <Grid item xs className={ classes.content }>
-        <Paper className={ classes.paper }>
+    <Grid container className={classes.container} spacing={24}>
+      <Grid item xs className={classes.forecastContent}>
+        <Paper className={classes.paper}>
+          <CurrentConditions/>
+        </Paper>
+      </Grid>
+      <Grid item xs className={classes.configurationContent}>
+        <Paper className={classes.paper}>
           <AddClothesBar/>
           <ClothesTemperatureMappings/>
-          <CurrentConditions/>
         </Paper>
       </Grid>
     </Grid>

@@ -1,17 +1,23 @@
 import React from 'react'
-import Card, { CardContent } from 'material-ui/Card'
 import Typography from 'material-ui/Typography'
 import { withStyles } from 'material-ui/styles'
 
 const styles = () => ({
-  card: {
-    maxWidth: 345
+  currentConditionsFont: {
+    fontFamily: 'Roboto',
+    textAlign: 'left'
   }
 })
 
 const CurrentConditions = ({ classes, realFeelTemperature }) => (
   <div>
-    {realFeelTemperature}
+    <Typography className={classes.currentConditionsFont}>
+      Current Conditions:
+    </Typography>
+    <Typography type="display4" gutterBottom>
+      -2.5
+      {/*{realFeelTemperature}*/}
+    </Typography>
   </div>
 )
 
