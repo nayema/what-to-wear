@@ -16,9 +16,9 @@ const styles = theme => ({
   container: {
     justifyContent: 'center'
   },
-  forecastContent: {
-    minWidth: '100px',
-    maxWidth: '300px'
+  currentConditionsContent: {
+    minWidth: '300px',
+    maxWidth: '500px'
   },
   configurationContent: {
     minWidth: '800px',
@@ -35,7 +35,7 @@ const App = ({ classes }) => (
   <div className={classes.root}>
     <Header/>
     <Grid container className={classes.container} spacing={24}>
-      <Grid item xs className={classes.forecastContent}>
+      <Grid item xs className={classes.currentConditionsContent}>
         <Paper className={classes.paper}>
           <CurrentConditions/>
         </Paper>
