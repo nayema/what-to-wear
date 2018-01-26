@@ -15,14 +15,14 @@ describe('reducer', () => {
 
   it('loads into clothesTemperatureMapping temperature mappings list', () => {
     const loadAllSucceededAction = actionCreators.loadAllSucceeded(
-      [{ id: 1, minTemp: 0, maxTemp: 10, setOfClothes: 'Some set of clothesTemperatureMapping' }]
+      [{ id: 1, minTemp: 0, maxTemp: 10, setOfClothes: 'Some set of clothes' }]
     )
 
     const nextState = reducer(undefined, loadAllSucceededAction)
 
     expect(nextState).toHaveProperty(
       'clothesTemperatureMappings',
-      [{ id: 1, minTemp: 0, maxTemp: 10, setOfClothes: 'Some set of clothesTemperatureMapping' }]
+      [{ id: 1, minTemp: 0, maxTemp: 10, setOfClothes: 'Some set of clothes' }]
     )
   })
 

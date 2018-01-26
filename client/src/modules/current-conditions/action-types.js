@@ -1,0 +1,1 @@
+export const LOAD_CURRENT_CONDITIONS_SUCCEEDED = 'clothesTemperatureMapping-list/LOAD_CURRENT_CONDITIONS_SUCCEEDED'

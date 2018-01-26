@@ -5,6 +5,7 @@ import createHistory from 'history/createBrowserHistory'
 
 import rootReducer from './modules/root-reducer'
 import * as clothesTemperatureMappings from './modules/clothes-temperature-mappings'
+import * as currentConditions from './modules/current-conditions'
 
 const sagaMiddleware = createSagaMiddleware()
 export const history = createHistory()
@@ -37,5 +38,6 @@ const store = createStore(
 
 sagaMiddleware.run(clothesTemperatureMappings.sagas.loadAll)
 sagaMiddleware.run(clothesTemperatureMappings.sagas.addClothesTemperatureMapping)
+sagaMiddleware.run(currentConditions.sagas.loadCurrentConditions)
 
 export default store
