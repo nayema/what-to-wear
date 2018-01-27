@@ -11,7 +11,7 @@ const styles = () => ({
   }
 })
 
-const CurrentConditions = ({ classes, realFeelTemperature, clothesTemperatureMappings }) => (
+const CurrentConditions = ({ classes, realFeelTemperature, recommendedSetOfClothes }) => (
   <div>
     <Typography className={classes.font}>
       Current Conditions:
@@ -23,11 +23,9 @@ const CurrentConditions = ({ classes, realFeelTemperature, clothesTemperatureMap
       <ListSubheader>
         Set of clothes to wear on {new Date().toDateString()}:
       </ListSubheader>
-      {clothesTemperatureMappings.map(clothesTemperatureMapping =>
-        <ListItem key={clothesTemperatureMapping.setOfClothes}>
-          {clothesTemperatureMapping.setOfClothes}
-        </ListItem>
-      )}
+      <ListItem>
+        {recommendedSetOfClothes}
+      </ListItem>
     </List>
   </div>
 )
