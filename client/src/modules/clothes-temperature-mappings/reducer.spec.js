@@ -74,13 +74,4 @@ describe('reducer', () => {
     expect(nextState).toHaveProperty('newMaxTemp', 10)
     expect(nextState).toHaveProperty('newSetOfClothes', '')
   })
-
-  it('deletes a clothesTemperatureMapping temperature clothesTemperatureMapping row from clothesTemperatureMapping temperature mappings list', () => {
-    const previousState = { clothesTemperatureMappings: [{ setOfClothes: 'Some set of clothesTemperatureMapping' }] }
-    const deleteClothesTemperatureMappingAction = actionCreators.deleteClothesTemperatureMapping('Some set of clothesTemperatureMapping')
-
-    const nextState = reducer(previousState, deleteClothesTemperatureMappingAction)
-
-    expect(nextState).toHaveProperty('clothesTemperatureMappings', [])
-  })
 })

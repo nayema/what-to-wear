@@ -14,7 +14,7 @@ export function * addClothesTemperatureMapping () {
   while (action = yield take(actionTypes.ADD_MAPPING_REQUESTED)) {
     const clothesTemperatureMapping = yield call(
       repository.addClothesTemperatureMapping,
-      action.payload.clothesTemperatureMapping
+      action.payload
     )
     yield put(actionCreators.addMappingSucceeded(clothesTemperatureMapping))
   }
