@@ -4,12 +4,12 @@ import * as actionTypes from './action-types'
 import * as actionCreators from './action-creators'
 import * as repository from './repository'
 
-export function * loadAll () {
+function * loadAll () {
   const clothesTemperatureMappings = yield call(repository.loadAll)
   yield put(actionCreators.loadAllSucceeded(clothesTemperatureMappings))
 }
 
-export function * addClothesTemperatureMapping () {
+function * addClothesTemperatureMapping () {
   let action
   while (action = yield take(actionTypes.ADD_MAPPING_REQUESTED)) {
     const clothesTemperatureMapping = yield call(
@@ -19,3 +19,12 @@ export function * addClothesTemperatureMapping () {
     yield put(actionCreators.addMappingSucceeded(clothesTemperatureMapping))
   }
 }
+
+function * sagas () {
+  yield all([
+    fork(loadAll),
+    fork(addClothesTemperatureMapping)
+  ])
+}
+
+export default sagas

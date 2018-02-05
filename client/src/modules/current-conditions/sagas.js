@@ -7,3 +7,11 @@ export function * loadCurrentConditions () {
   const currentConditions = yield call(repository.loadCurrentConditions)
   yield put(actionCreators.loadCurrentConditionsSucceeded(currentConditions))
 }
+
+function * sagas () {
+  yield all([
+    fork(loadCurrentConditions)
+  ])
+}
+
+export default sagas
